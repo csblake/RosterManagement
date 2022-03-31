@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Players on Team</title>
+</head>
+<body>
+
+	<form>
+		<table>
+		<tr th:each="currentPlayer : ${players}">
+			<td th:text="${currentPlayer.name}"/>
+			<td th:text="${currentPlayer.number}"/>
+			<td th:text="${currentPlayer.height}"/>
+			<td th:text="${currentPlayer.position}"/>
+			<td th:text="${currentPlayer.yearsPro}"/>
+			<td th:text="${currentPlayer.team.teamname}"/>
+			<td th:text="${currentPlayer.team.city}"/>
+			<td th:text="${currentPlayer.team.state}"/>
+			<td th:text="${currentPlayer.team.stadium}"/>
+			<td><a th:href="@{/edit/{id}(id=${currentPlayer.id})}">Edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${currentPlayer.id})}">Delete</a></td>
+		</tr>
+		</table>
+	</form>
+	<a href="../inputPlayer">Add a new player</a>
+
+</body>
+</html>

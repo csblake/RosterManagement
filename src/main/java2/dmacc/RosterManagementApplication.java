@@ -16,32 +16,32 @@ import dmacc.controller.BeanConfiguration;
 import dmacc.repository.PlayerRepository;
 
 @SpringBootApplication
-public class RosterManagementApplication implements CommandLineRunner {
+public class RosterManagementApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RosterManagementApplication.class, args);
 	}
 
-	@Autowired
-	PlayerRepository repo;
-	
-	public void run(String...args) throws Exception {
-		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-		
-		Player p = appContext.getBean("player", Player.class);
-		repo.save(p);
-		
-		Player l = new Player("Lebron James", "6 ft. 9 in.", "Small Forward", 6, 19);
-		l.setPosition("Small Forward");
-		Team t = new Team("Lakers", "Los Angeles", "California", "Crypto.com");
-		l.setTeam(t);
-		repo.save(l);
-		
-		List<Player> allMyPlayers = repo.findAll();
-		for(Player players: allMyPlayers) {
-			System.out.println(players.toString());
-		}
-		
-		((AbstractApplicationContext) appContext).close();
-	}
+//	@Autowired
+//	PlayerRepository repo;
+//	
+//	public void run(String...args) throws Exception {
+//		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
+//		
+//		Player p = appContext.getBean("player", Player.class);
+//		repo.save(p);
+//		
+//		Player l = new Player("Russell Westbrook", "6 ft. 6 in.", "Point Guard", 0, 10);
+//		l.setPosition("Point Guard");
+//		Team t = new Team("Lakers", "Los Angeles", "California", "Crypto.com");
+//		l.setTeam(t);
+//		repo.save(l);
+//		
+//		List<Player> allMyPlayers = repo.findAll();
+//		for(Player players: allMyPlayers) {
+//			System.out.println(players.toString());
+//		}
+//		
+//		((AbstractApplicationContext) appContext).close();
+//	}
 }

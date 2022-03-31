@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Team {
 	// attributes
-	private String teamName;
+	private String teamname;
 	private String city;
 	private String state;
 	private String stadium;
@@ -18,23 +18,25 @@ public class Team {
 	
 	public Team(String name, String city, String state, String stadium) {
 		super();
-		this.teamName = name;
+		this.teamname = name;
 		this.city = city;
 		this.state = state;
 		this.stadium = stadium;
 	}
 
 	// getters and setters
-	public String getName() {
-		return teamName;
-	}
-
-	public void setName(String name) {
-		this.teamName = name;
-	}
+	
 
 	public String getCity() {
 		return city;
+	}
+
+	public String getTeamname() {
+		return teamname;
+	}
+
+	public void setTeamname(String teamname) {
+		this.teamname = teamname;
 	}
 
 	public void setCity(String city) {
@@ -60,6 +62,6 @@ public class Team {
 	// methods
 	@Override
 	public String toString() {
-		return "Team [name=" + teamName + ", city=" + city + ", state=" + state + ", stadium=" + stadium + "]";
+		return "Team [name=" + teamname + ", city=" + city + ", state=" + state + ", stadium=" + stadium + "]";
 	}
 }
