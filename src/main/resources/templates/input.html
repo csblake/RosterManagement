@@ -3,10 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <title>Input New Players</title>
+
+<script type="text/javascript">
+
+	function validate() {
+		if(document.form.name.value == "") {
+			alert("Please provide the name of the player.");
+			document.form.name.focus();
+			return false;
+		}
+		
+		if(document.form.number.value == -1) {
+			alert("Please provide the number of the player.");
+			document.form.number.focus();
+			return false;
+		}
+		
+		if(document.form.height.value == "") {
+			alert("Please provide the height of the player.");
+			document.form.height.focus();
+			return false;
+		}
+		
+		if(document.form.position.value == "") {
+			alert("Please provide the position of the player.");
+			document.form.position.focus();
+			return false;
+		}
+		
+		if(document.form.yearsPro.value == 0) {
+			alert("Please provide the amount of years pro the player has.");
+			document.form.yearsPro.focus();
+			return false;
+		}
+		
+		if(document.form.team.city.value == "") {
+			alert("Please provide the city where the players team is located.");
+			document.form.team.city.focus();
+			return false;
+		}
+		
+		if(document.form.team.state.value == "") {
+			alert("Please provide the state where the players team is located.");
+			document.form.team.state.focus();
+			return false;
+		}
+		
+		if(document.form.team.teamname.value == "") {
+			alert("Please provide the name of the team the player plays for.");
+			document.form.team.teamname.focus();
+			return false;
+		}
+		
+		if(document.form.team.stadium.value == "") {
+			alert("Please provide the name of the stadium the team plays in.");
+			document.form.team.stadium.focus();
+			return false;
+		}  
+		
+		if(document.form.number.value > 99) {
+			alert("Please enter a number below 100.");
+			document.form.number.focus();
+			return false;
+		}
+		return true;
+	}
+
+</script>
+
 </head>
 <body>
 
-	<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method=POST>
+	<form name="form" th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method=POST onsubmit="return(validate());">
 	NAME: <input name="name" size="20" th:field="*{name}"><br />
 	NUMBER: <input name="number" size="20" th:field="*{number}"><br />
 	HEIGHT: <input name="height" size="20" th:field="*{height}"><br />

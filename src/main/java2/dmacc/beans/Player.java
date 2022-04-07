@@ -79,7 +79,11 @@ public class Player {
 	}
 
 	public void setNumber(int number) {
-		this.number = number;
+		if(number == 0) {
+			this.number = -1;
+		} else {
+			this.number = number;
+		}
 	}
 
 	public int getYearsPro() {
